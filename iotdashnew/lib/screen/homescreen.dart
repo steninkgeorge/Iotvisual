@@ -5,9 +5,10 @@ import 'package:iotdashnew/screen/apikey.dart';
 import 'package:iotdashnew/screen/controlSystem.dart';
 import 'package:iotdashnew/screen/graph.dart';
 import 'package:iotdashnew/screen/widgets/selection_bar_widget.dart';
+import 'dart:js' as js;
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
 
   void generateApiKey() {
     Get.to(ApiKeyGeneration(), transition: Transition.cupertino);

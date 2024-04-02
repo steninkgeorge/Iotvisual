@@ -6,6 +6,9 @@ import 'package:iotdashnew/service/http_service.dart';
 import 'dart:js' as js; // Import the js library
 
 class AuthController extends GetxController {
+  final RxString _cookie = RxString('');
+  String get cookie => _cookie.value;
+
   void setCookie(String name, String value) {
     final expires = DateTime.now().add(const Duration(days: 7));
 
@@ -22,7 +25,7 @@ class AuthController extends GetxController {
       print(res);
       var _id = decodedRes['user_id'];
       setCookie('_id', _id);
-
+      _cookie.value = _id;
       Get.offAllNamed('/home');
     } catch (e) {
       Get.snackbar('error', e.toString());
